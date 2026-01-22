@@ -1,0 +1,259 @@
+/* --- RESET Y FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+header nav ul li a:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; padding: 1rem; }
+    header nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    /* Ajusta la ruta de la imagen si es necesario. '../img' asume que el css está en una carpeta 'css' */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+/* Hero específico para inicio (más alto) */
+.hero-home {
+    height: 60vh;
+}
+
+/* Hero para otras páginas (más bajo) */
+.hero-page {
+    height: 35vh;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* --- CONTENEDORES --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #e74c3c;
+}
+
+/* --- ESTILOS ESPECÍFICOS INICIO (Aquí estaba el error) --- */
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.comparison-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.comparison-card {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    width: 300px; /* Ancho fijo para alineación */
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+}
+
+.comparison-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Redondo para perfiles */
+    margin-bottom: 15px;
+    border: 4px solid #f4f4f4;
+}
+
+.comparison-card.square-img img {
+    border-radius: 10px; /* Cuadrado redondeado para logos */
+    object-fit: contain;
+    background-color: #eee; /* Fondo suave para logos transparentes */
+}
+
+.comparison-card p {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* --- ESTILOS GRID (Trabajos / Equipo) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #333;
+}
+
+.project-content { padding: 20px; }
+.state { font-weight: bold; color: #e74c3c; font-size: 0.85rem; display: block; margin-bottom: 10px; }
+
+/* --- HISTORIA --- */
+.history-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.history-block:nth-child(even) { flex-direction: row-reverse; }
+.history-text { flex: 1; }
+.history-text p { text-align: justify; color: #555; }
+.history-img-container { flex: 1; display: flex; justify-content: center; }
+.history-img-container img { max-width: 100%; height: auto; border-radius: 8px; max-height: 300px; object-fit: contain; }
+@media (max-width: 768px) { .history-block, .history-block:nth-child(even) { flex-direction: column; } }
+
+/* --- CONTACTO --- */
+.contact-wrapper {
+    background: white; border-radius: 10px; padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;
+    max-width: 800px; margin: 0 auto;
+}
+.contact-list { display: flex; flex-direction: column; gap: 15px; align-items: center; margin-bottom: 30px; }
+.contact-btn {
+    display: inline-block; padding: 10px 25px; background-color: #2c3e50;
+    color: white; border-radius: 30px; font-weight: bold; min-width: 200px;
+}
+.contact-btn:hover { background-color: #e74c3c; transform: scale(1.05); }
+.contact-image-large { max-width: 100%; height: auto; border-radius: 10px; }
+
+/* --- FOOTER --- */
+footer {
+    background-color: #2c3e50; color: #ecf0f1; text-align: center;
+    padding: 20px; margin-top: auto;
+}
